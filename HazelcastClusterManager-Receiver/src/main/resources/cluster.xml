@@ -29,8 +29,7 @@
         <multicast-port>54327</multicast-port>
       </multicast>
       <tcp-ip enabled="true">
-        <interface>172.17.0.5</interface>
-        <interface>172.17.0.4</interface>
+        <interface>Conatiner 1 IP address</interface>
       </tcp-ip>
       <aws enabled="false">
         <access-key>my-access-key</access-key>
@@ -45,8 +44,8 @@
         <tag-value>hz-nodes</tag-value>
       </aws>
     </join>
-	 <interfaces enabled="false">
-        <interface>172.17.0.4</interface>
+	 <interfaces enabled="true">
+        <interface>Container 2 IP address</interface>
     </interfaces>
     <ssl enabled="false"/>
     <socket-interceptor enabled="false"/>
