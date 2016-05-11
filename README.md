@@ -10,11 +10,12 @@ The Java directory contains two folders: example and io. The .java files in the 
 
 Building sender and receiver
 ----------------------------
-Generate the FAT jar: gradle --info clean assemble from the top directory. 
+Generate the FAT jar: gradle --info clean assemble from the top directory.
+
 Generate the shadow jar: execute gradle --info shadowJar from the top directory.
 
 The JARS are persisted in the build/libs directory. 
 
-Run the sender on container 1: java -jar <name of the sender FAT jar> -cluster -cluster-host <IP address of the container hosting the sender (container 1 IP address)>
+Run the sender on container 1: java -jar <build/libs/name of the sender FAT jar> -cluster -cluster-host <IP address of the container hosting the sender (container 1 IP address)>
 
-Run the receiver on container 2: java -jar <name of the receiver FAT jar> -cluster -cluster-host <IP address of the container hosting the receiver (container 2 IP address)>
+Run the receiver on container 2: java -jar <build/libs/name of the receiver FAT jar> -cluster -cluster-host <IP address of the container hosting the receiver (container 2 IP address)>
