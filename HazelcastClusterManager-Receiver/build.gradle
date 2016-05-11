@@ -1,0 +1,61 @@
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "com.github.jengelman.gradle.plugins:shadow:1.2.3"
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+repositories {
+    mavenCentral()
+}
+
+version = '3.2.1'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = 'io.vertx.core.Launcher'
+//mainClassName = 'examples.Examples'
+
+dependencies {
+    compile "io.vertx:vertx-core:$version"
+        compile "io.vertx:vertx-web:$version"
+        compile "io.vertx:vertx-hazelcast:$version"
+}
+
+jar {
+        classifier = 'fat'
+        manifest {
+           attributes 'Main-Verticle': 'io.vertx.core.Launcher'
+           //attributes 'Main-Verticle': 'examples.ReceiverVerticle'
+           attributes 'Main-Class': 'examples.Examples'
+        }
+        baseName = 'HazelcastVertx-Receiver'
+        version = '0.0.1-SNAPSHOT'
+        from { (configurations.runtime).collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+shadowJar {
+  classifier = 'fat'
+   manifest {
+        attributes 'Main-Verticle': 'examples.ReceiverVerticle'
+        //attributes 'Main-Class': 'examples.Examples'
+    }
+  baseName = 'HazelcastVertxReceiver'
+        version = 'shadowJar'
+  mergeServiceFiles {
+    include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
+  }
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.8'
+}
