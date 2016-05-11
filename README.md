@@ -12,7 +12,7 @@ Building sender and receiver
 ----------------------------
 Generate the FAT jar: gradle --info clean assemble from the top directory.
 
-Generate the shadow jar: execute gradle --info shadowJar from the top directory.
+Generate the shadow jar: gradle --info shadowJar from the top directory.
 
 The JARS are persisted in the build/libs directory. 
 
