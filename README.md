@@ -5,6 +5,10 @@ In this example, there are two projects nammely sender and the receiver that are
 
 The source code for the sender is placed in the folder: HazelcastClusterManager-Sender while the code for the receiver is placed under HazelcastClusterManager-Receiver.
 
+Deployment
+----------
+Sender is deployed on container 1 while receiver is deployed on container 2
+
 The two projects primarily contains the following files: build.gradle, cluster.xml and a src folder which has two packages: java and resources. 
 The Java directory contains two folders: example and io. The .java files in the io directory was taken from the github: https://github.com/vert-x3/vertx-hazelcast/tree/master/src.
 
