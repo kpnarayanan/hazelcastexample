@@ -16,6 +16,6 @@ Generate the shadow jar: gradle --info shadowJar from the top directory.
 
 The JARS are persisted in the build/libs directory. 
 
-Run the sender on container 1: java -jar </build/libs/name of the sender FAT jar>/ -cluster -cluster-host <IP address of the container hosting the sender (container 1 IP address)>
+Run the sender on container 1: java -jar build/libs/name of the sender FAT jar -cluster -cluster-host container 1 IP address
 
-Run the receiver on container 2: java -jar /<build/libs/name of the receiver FAT jar/> -cluster -cluster-host <IP address of the container hosting the receiver (container 2 IP address)>
+Run the receiver on container 2: java -jar build/libs/name of the receiver FAT jar -cluster -cluster-host container 2 IP address
